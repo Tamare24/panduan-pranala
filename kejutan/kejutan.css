@@ -46,7 +46,14 @@ body.terang .langit.senja-l { opacity: 1; }
 .cahaya-lilin { position: absolute; inset: 0; opacity: var(--glow, 0);
   background: radial-gradient(circle at 50% 44%, rgba(255, 186, 100, .55) 0, rgba(255, 150, 90, .18) 22%, transparent 48%); }
 .bintang, .untaian, .bendera { position: absolute; left: 0; right: 0; margin: 0; font: 18px/18px var(--vt); white-space: pre; overflow: hidden; }
-.bintang { top: 0; color: #e9ddff; opacity: .75; transition: opacity 1.8s; }
+.bintang { top: 0; color: #e9ddff; opacity: .75; transition: opacity 1.8s;
+  /* bagian tengah (tempat teks & Pranala) dibiarkan kosong: bintang tidak terselip di antara huruf */
+  -webkit-mask-image: radial-gradient(ellipse 34% 40% at 50% 52%, transparent 70%, #000 100%);
+  mask-image: radial-gradient(ellipse 34% 40% at 50% 52%, transparent 70%, #000 100%); }
+@media (max-width: 620px) {
+  .bintang { -webkit-mask-image: radial-gradient(ellipse 60% 36% at 50% 50%, transparent 70%, #000 100%);
+    mask-image: radial-gradient(ellipse 60% 36% at 50% 50%, transparent 70%, #000 100%); }
+}
 body.terang .bintang { opacity: .18; color: #fff; }
 .untaian { top: 0; color: #8b7896; }
 body.terang .untaian { color: #c9a9b5; }
