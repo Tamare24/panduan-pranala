@@ -1,0 +1,118 @@
+/* Kejutan ulang tahun: kamar gelap diterangi lilin, lalu lampu menyala hangat */
+:root {
+  --malam: #1c1424;
+  --malam-2: #2a1f36;
+  --lilin: #ffcf7a;
+  --mawar: #f07595;
+  --krim: #fff3e8;
+  --krim-redup: #d8c4cf;
+  --hangat: #fde9ec;
+  --tinta: #4a2a3e;
+  --kertas: #fffaf2;
+  --garis: #ead3d9;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { margin: 0; min-height: 100%; }
+body {
+  font: 18px/1.6 "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  background: var(--malam); color: var(--krim);
+  transition: background-color 1.6s ease, color 1.6s ease;
+  overflow-x: hidden;
+}
+body.gelap::before {                                   /* cahaya lilin di tengah kegelapan */
+  content: ""; position: fixed; inset: 0; pointer-events: none;
+  background: radial-gradient(circle at 50% 42%, rgba(255, 190, 110, var(--glow, 0)) 0, transparent 46%);
+  transition: opacity 1.2s;
+}
+body.terang { background: var(--hangat); color: var(--tinta); }
+.stars { position: fixed; inset: 0; pointer-events: none; transition: opacity 1.6s; }
+.stars i { position: absolute; width: 2px; height: 2px; background: #f3e6ff; border-radius: 50%; opacity: .7; }
+body.terang .stars { opacity: 0; }
+#confetti { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 5; }
+
+main { max-width: 760px; margin: 0 auto; padding: 40px 16px 72px; min-height: 100svh; display: grid; }
+.adegan { align-self: center; text-align: center; animation: muncul .9s ease both; }
+@keyframes muncul { from { opacity: 0; } to { opacity: 1; } }
+
+.ascii {
+  display: inline-block; text-align: left; margin: 0 auto 18px;
+  font: 22px/1.05 "VT323", "Courier New", monospace; white-space: pre; color: var(--krim);
+  text-shadow: 0 0 10px rgba(255, 207, 122, .25);
+}
+.ascii.kecil { font-size: 18px; opacity: .85; }
+.ascii .api { color: var(--lilin); text-shadow: 0 0 12px rgba(255, 190, 90, .9); }
+.ascii .pipi { color: var(--mawar); }
+.ascii .bintang { color: var(--lilin); }
+body.terang .ascii { color: var(--tinta); text-shadow: none; }
+body.terang .ascii .pipi, body.terang .ascii .hati { color: #d94f73; }
+
+.judul { font: 400 clamp(46px, 11vw, 76px)/1 "VT323", monospace; letter-spacing: 1px; margin: 4px 0 14px; color: var(--lilin); }
+body.terang .judul { color: #d94f73; }
+.bisik { font-size: 20px; min-height: 3.2em; margin: 0 auto 22px; max-width: 30ch; color: var(--krim-redup); }
+body.terang .bisik { color: #7a5a6c; }
+
+.tombol {
+  font: 700 18px "Atkinson Hyperlegible", sans-serif; border: 0; border-radius: 999px; cursor: pointer;
+  padding: 14px 28px; background: var(--lilin); color: #3a2418;
+  box-shadow: 0 0 0 6px rgba(255, 207, 122, .16), 0 10px 24px -10px rgba(255, 190, 90, .8);
+}
+body.terang .tombol { background: #d94f73; color: #fff; box-shadow: 0 8px 20px -10px rgba(217, 79, 115, .9); }
+.tombol:focus-visible, input:focus-visible, .kembali:focus-visible, .foto:focus-visible, .suara:focus-visible { outline: 3px solid #8cacee; outline-offset: 3px; }
+
+.suara {
+  position: fixed; right: 14px; bottom: 14px; z-index: 6; font: 15px "Atkinson Hyperlegible", sans-serif;
+  border: 1px solid rgba(255, 255, 255, .25); background: rgba(0, 0, 0, .25); color: inherit; border-radius: 999px; padding: 8px 14px; cursor: pointer;
+}
+body.terang .suara { border-color: var(--garis); background: rgba(255, 255, 255, .6); }
+
+/* kartu kunci */
+.kartu { background: var(--kertas); color: var(--tinta); border-radius: 22px; padding: 26px 24px; max-width: 400px; margin: 0 auto; text-align: left;
+  box-shadow: 0 20px 50px -24px rgba(74, 42, 62, .6); }
+.kartu .ascii { color: var(--tinta); display: block; width: max-content; margin: 0 auto 8px; }
+.kartu h2 { font: 400 34px/1.1 "VT323", monospace; margin: 0 0 8px; text-align: center; }
+.kartu p { margin: 0 0 12px; font-size: 17px; }
+.petunjuk { background: #fdf0f2; border-radius: 12px; padding: 10px 12px; }
+.kartu label { display: block; font-weight: 700; margin: 6px 0 6px; }
+.kartu input { width: 100%; font: 18px "Atkinson Hyperlegible", sans-serif; padding: 12px 14px; border-radius: 12px; border: 2px solid var(--garis); background: #fff; color: var(--tinta); }
+.kartu .tombol { width: 100%; margin-top: 14px; }
+.pesan-salah { color: #b3362a; min-height: 1.4em; margin: 10px 0 0 !important; text-align: center; }
+
+/* surat */
+.surat { background: var(--kertas); color: var(--tinta); border-radius: 6px; padding: 30px 28px 26px; margin: 0 auto 36px; max-width: 560px; text-align: left;
+  font: 23px/34px "Patrick Hand", "Comic Sans MS", cursive;   /* tinggi baris = jarak garis kertas */
+  background-image: repeating-linear-gradient(transparent 0 33px, #f2dfe4 33px 34px); background-position: 0 30px;
+  box-shadow: 0 1px 0 var(--garis), 0 24px 50px -28px rgba(74, 42, 62, .55); transform: rotate(-.6deg); }
+.surat .untuk { margin: 0; color: #d94f73; }
+.surat .isi p { margin: 0 0 34px; }                            /* satu garis kosong antarparagraf */
+.surat .isi p:last-child { margin-bottom: 0; }
+.surat .dari { margin: 34px 0 0; text-align: right; color: #d94f73; }
+
+/* galeri polaroid */
+.galeri { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px 20px; margin: 0 auto 40px; }
+.foto { background: #fff; border: 0; padding: 10px 10px 12px; cursor: zoom-in; text-align: center; color: var(--tinta);
+  box-shadow: 0 14px 30px -16px rgba(74, 42, 62, .6); transform: rotate(var(--r, 0deg)); transition: transform .25s; font: inherit; }
+.foto:hover { transform: rotate(0deg) scale(1.03); }
+.foto img { display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; background: #f3e6ea; }
+.foto .ket { display: block; font: 19px/1.25 "Patrick Hand", cursive; margin-top: 8px; }
+.foto .tgl { display: block; font-size: 13px; color: #9b7a8a; margin-top: 2px; }
+.penutup { font-size: 19px; color: #7a5a6c; margin: 0 0 22px; }
+.kembali { color: #d94f73; }
+
+dialog { border: 0; padding: 14px; border-radius: 8px; max-width: min(92vw, 720px); background: #fff; color: var(--tinta); }
+dialog::backdrop { background: rgba(28, 20, 36, .8); }
+dialog img { display: block; max-width: 100%; max-height: 74vh; margin: 0 auto; }
+dialog p { font: 22px "Patrick Hand", cursive; text-align: center; margin: 10px 0 0; }
+.tutup { position: absolute; right: 8px; top: 4px; border: 0; background: none; font-size: 30px; cursor: pointer; color: var(--tinta); }
+
+@media (max-width: 620px) {
+  .ascii { font-size: 17px; }
+  .ascii.kecil { font-size: 15px; }
+  .galeri { grid-template-columns: repeat(2, 1fr); gap: 18px 14px; }
+  .surat { font-size: 21px; padding: 24px 20px 22px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .adegan { animation: none; }
+  body, .stars { transition: none; }
+  .foto { transition: none; }
+}

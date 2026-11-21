@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Panduan Pranala</title>
+<meta name="description" content="Cara merawat, bermain, dan membaca surat bersama Pranala — kucing kecil di dalam layar.">
+<meta name="theme-color" content="#fdf0f2">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M5 15 7 3l8 7M27 15 25 3l-8 7' fill='%238cacee'/%3E%3Cellipse cx='16' cy='19' rx='13' ry='10' fill='%23fffefa' stroke='%237e6470' stroke-width='1.5'/%3E%3Ccircle cx='11' cy='19' r='1.8' fill='%23222'/%3E%3Ccircle cx='21' cy='19' r='1.8' fill='%23222'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Pixelify+Sans:wght@400..700&display=swap">
+<link rel="stylesheet" href="gaya.css">
+</head>
+<body>
+<a class="skip" href="#isi">Langsung ke panduan</a>
+<p class="bday" id="bday" hidden>Hari ini 15 Desember. Pranala menyiapkan sesuatu untukmu: <a href="kejutan/">buka kejutannya</a>.</p>
+
+<!-- Gambar Pranala (sama dengan di layar perangkat): dipakai ulang lewat <use> -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <clipPath id="kepala"><ellipse cx="0" cy="-86" rx="50" ry="38"/></clipPath>
+    <g id="pranala">
+      <g fill="#7e6470" stroke="#7e6470" stroke-width="3.4" stroke-linejoin="round">
+        <circle cx="34" cy="-30" r="9"/><circle cx="43" cy="-41" r="9"/><circle cx="49" cy="-53" r="9"/><circle cx="52" cy="-66" r="10"/>
+        <ellipse cx="-19" cy="-6" rx="13" ry="7"/><ellipse cx="19" cy="-6" rx="13" ry="7"/>
+        <ellipse cx="0" cy="-27" rx="33" ry="27"/>
+        <ellipse cx="-35" cy="-30" rx="8" ry="11"/><ellipse cx="35" cy="-30" rx="8" ry="11"/>
+        <path d="M-41-138-50-100-19-121ZM41-138 50-100 19-121Z"/>
+        <ellipse cx="0" cy="-86" rx="50" ry="38"/>
+      </g>
+      <g fill="#fffefa">
+        <circle cx="34" cy="-30" r="9"/><circle cx="43" cy="-41" r="9"/><circle cx="49" cy="-53" r="9"/>
+        <ellipse cx="-19" cy="-6" rx="13" ry="7"/><ellipse cx="19" cy="-6" rx="13" ry="7"/>
+        <ellipse cx="0" cy="-27" rx="33" ry="27"/>
+        <ellipse cx="-35" cy="-30" rx="8" ry="11"/><ellipse cx="35" cy="-30" rx="8" ry="11"/>
+      </g>
+      <circle cx="52" cy="-66" r="10" fill="#8cacee"/>
+      <path d="M-41-138-50-100-19-121ZM41-138 50-100 19-121Z" fill="#8cacee"/>
+      <path d="M-38.8-128.8-43.3-109.8-27.8-120.3ZM38.8-128.8 43.3-109.8 27.8-120.3Z" fill="#ffb4c6"/>
+      <ellipse cx="0" cy="-86" rx="50" ry="38" fill="#fffefa"/>
+      <g clip-path="url(#kepala)" fill="#8cacee">
+        <rect x="-52" y="-126" width="104" height="38"/>
+        <path d="M-49-88h19l-13 19zM49-88H30l13 19z"/>
+      </g>
+      <path d="M0-119-16-87H16Z" fill="#fffefa"/>
+      <path d="M0-108 2-103 7-101 2-99 0-94-2-99-7-101-2-103Z" fill="#ffcd5c"/>
+      <rect x="-31" y="-58" width="62" height="11" rx="5.5" fill="#f0708e"/>
+      <path d="M14-53l11 15-8 2z" fill="#d94f73"/>
+      <ellipse cx="-34" cy="-68" rx="7.5" ry="4.5" fill="#ffb0c0"/><ellipse cx="34" cy="-68" rx="7.5" ry="4.5" fill="#ffb0c0"/>
+      <g class="pet-eyes">
+        <ellipse cx="-20" cy="-78" rx="5" ry="6.5" fill="#1d1418"/><ellipse cx="20" cy="-78" rx="5" ry="6.5" fill="#1d1418"/>
+        <circle cx="-21.8" cy="-80.6" r="2" fill="#fff"/><circle cx="18.2" cy="-80.6" r="2" fill="#fff"/>
+      </g>
+      <path d="M-6-66q3 3.5 6 0 3 3.5 6 0" fill="none" stroke="#602c3e" stroke-width="2" stroke-linecap="round"/>
+    </g>
+  </defs>
+</svg>
+
+<header class="hero">
+  <div>
+    <h1>Halo, aku Pranala.</h1>
+    <p class="lead">Kucing kecil yang tinggal di dalam layar. Di sini kamu belajar merawatku, bermain, dan membaca surat. Semuanya cukup pakai dua tombol.</p>
+    <p class="try">Coba tekan tombol di gambarku. <kbd>A</kbd> menggeser menu, <kbd>B</kbd> membuka penjelasannya, dan menahan <kbd>A</kbd> membawamu kembali ke atas.</p>
+  </div>
+
+  <figure class="device" id="device" aria-label="Pranala tiruan yang bisa dicoba">
+    <div class="case">
+      <div class="tft">
+        <svg class="room" id="room" viewBox="0 0 240 190" aria-hidden="true">
+          <rect width="240" height="100" fill="var(--wall, #f7e1e7)"/>
+          <g fill="var(--wall-dot, #f0cdd7)"><circle cx="20" cy="20" r="2"/><circle cx="60" cy="40" r="2"/><circle cx="100" cy="16" r="2"/><circle cx="150" cy="44" r="2"/><circle cx="190" cy="78" r="2"/><circle cx="36" cy="88" r="2"/><circle cx="128" cy="80" r="2"/></g>
+          <rect y="98" width="240" height="26" fill="var(--wainscot, #eecfd8)"/>
+          <rect y="98" width="240" height="4" fill="var(--rail, #d9a9b8)"/>
+          <rect y="124" width="240" height="66" fill="var(--floor, #e7c3a6)"/>
+          <g stroke="var(--floor-line, #d4ab8c)" stroke-width="1"><path d="M0 138h240M0 152h240M0 166h240M0 180h240M60 124v14M140 124v14M20 138v14M100 138v14M180 138v14M60 152v14M140 152v14"/></g>
+          <rect y="120" width="240" height="6" fill="var(--rail, #d9a9b8)"/>
+          <rect x="13" y="65" width="60" height="52" rx="6" fill="#b88d7e"/>
+          <rect x="14" y="66" width="58" height="50" rx="5" fill="#fff4ec"/>
+          <rect x="19" y="71" width="48" height="40" fill="var(--sky, #bfe0f7)"/>
+          <circle cx="54" cy="81" r="6" fill="var(--sun, #ffe6a0)"/>
+          <path d="M42 71v40M19 91h48" stroke="#fff4ec" stroke-width="3"/>
+          <ellipse cx="120" cy="172" rx="92" ry="15" fill="#e6a7b5"/>
+          <ellipse cx="120" cy="172" rx="88" ry="12" fill="#f4c2cd"/>
+          <rect x="216" y="88" width="4" height="84" fill="#7c6264"/>
+          <path d="M209 62h18l9 27h-36z" fill="var(--shade, #f2c25a)"/>
+          <circle cx="214" cy="30" r="17" fill="#7e6470"/><circle cx="214" cy="30" r="15" fill="#fff9ec"/>
+          <path d="M214 30v-9M214 30l6 4" stroke="#54303f" stroke-width="1.6" stroke-linecap="round"/>
+          <ellipse cx="120" cy="174" rx="44" ry="6" fill="rgba(90,50,70,.18)"/>
+          <g class="pet" id="pet" role="button" aria-label="Pranala">
+            <use href="#pranala" transform="translate(120 174) scale(.86)"/>
+          </g>
+        </svg>
+        <div class="bubble" id="bubble" aria-live="polite">Halo!
+Tekan A ya~</div>
+        <div class="bar" id="bar"></div>
+      </div>
+      <div class="oled" aria-hidden="true"><span id="oledL">Makan</span><span id="oledR">A:geser</span></div>
+    </div>
+    <div class="keys">
+      <button class="key" id="keyA" type="button" aria-label="Tombol A: geser menu, tahan untuk kembali ke atas">A</button>
+      <button class="key" id="keyB" type="button" aria-label="Tombol B: buka penjelasan menu terpilih">B</button>
+    </div>
+    <figcaption class="keyhint">Sama seperti tombol asli di sisi Pranala.</figcaption>
+  </figure>
+</header>
+
+<div class="wrap">
+  <nav class="toc" aria-label="Daftar isi">
+    <h2>Isi panduan</h2>
+    <ol id="toc">
+      <li><a href="#kenalan">Kenalan dulu</a></li>
+      <li><a href="#tombol">Dua tombol</a></li>
+      <li><a href="#merawat">Merawat Pranala</a></li>
+      <li><a href="#tumbuh">Tumbuh besar</a></li>
+      <li><a href="#main">Main &amp; jalan-jalan</a></li>
+      <li><a href="#surat">Surat</a></li>
+      <li><a href="#wifi">WiFi, foto &amp; saver</a></li>
+      <li><a href="#daya">Baterai &amp; daya</a></li>
+      <li><a href="#setting">Pengaturan</a></li>
+      <li><a href="#masalah">Kalau ada yang aneh</a></li>
+    </ol>
+  </nav>
+
+  <main class="guide" id="isi">
+
+    <section id="kenalan">
+      <h2>Kenalan dulu</h2>
+      <p>Pranala punya dua layar. Layar besar yang berwarna adalah kamar tempat Pranala tinggal. Layar kecil di sebelahnya menampilkan ringkasan: jam, baterai, menu yang sedang dipilih, dan petunjuk tombol.</p>
+      <p>Geser saklar ke <b>ON</b> untuk menyalakan. Saat pertama kali menyala, kamu akan menemukan Pranala kecil yang kedinginan di dalam kotak kardus. Ikuti saja petunjuk di layar, lalu Pranala resmi tinggal bersamamu.</p>
+      <p>Pranala diisi daya lewat lubang <b>USB-C</b>. Selama dicas, ia tidak akan mematikan diri sendiri.</p>
+      <p class="note">Ingin menonton lagi cerita kotak kardusnya? Tahan tombol B saat Pranala baru menyala. Ceritanya hanya diputar ulang: koin, makanan, dan pertumbuhan tidak berubah.</p>
+    </section>
+
+    <section id="tombol">
+      <h2>Cukup dua tombol</h2>
+      <p>Di bagian bawah layar besar selalu ada dua pil: kiri untuk tombol A, kanan untuk tombol B. Tulisan besar adalah yang terjadi kalau tombol diklik. Tulisan kecil bertanda <span class="hold">◄</span> adalah yang terjadi kalau tombol ditahan sebentar.</p>
+      <div class="keymap">
+        <span class="cap">A</span><p>Geser ke pilihan berikutnya.</p>
+        <span class="cap">B</span><p>Pilih atau lakukan.</p>
+        <span class="cap hold-cap">◄A</span><p>Tahan A: kembali, keluar, atau simpan.<small>Di mana pun kamu tersesat, tahan A untuk pulang.</small></p>
+        <span class="cap hold-cap">◄B</span><p>Tahan B: aksi khusus.<small>Mengelus terus, menggosok busa saat mandi, menyalakan musik fokus, atau pindah ke surat lain.</small></p>
+        <span class="cap">A+B</span><p>Tahan keduanya 3 detik, lalu lepas: Pranala menyala ulang.<small>Pakai hanya kalau layar terasa macet. Data tidak hilang.</small></p>
+      </div>
+      <p>Saat layar sedang tidur (menampilkan foto atau jam), tekan tombol apa saja untuk membangunkan. Tekanan pertama hanya membangunkan, jadi tidak ada yang terpilih tanpa sengaja.</p>
+    </section>
+
+    <section id="merawat">
+      <h2>Merawat Pranala</h2>
+      <p>Pranala punya empat kebutuhan. Ikonnya tampil sebagai meter di layar kecil, dan wajah Pranala ikut berubah sesuai perasaannya.</p>
+      <div class="needs">
+        <div class="need"><h3>Senang</h3><div class="meter"><i style="width:82%;background:#e8789a"></i></div><p>Naik saat dielus, makan, dan bermain. Turun pelan kalau ditinggal lama.</p></div>
+        <div class="need"><h3>Kenyang</h3><div class="meter"><i style="width:64%;background:var(--butter)"></i></div><p>Naik saat makan, turun sedikit demi sedikit setiap menit.</p></div>
+        <div class="need"><h3>Energi</h3><div class="meter"><i style="width:45%;background:var(--blue)"></i></div><p>Turun pelan di siang hari, lebih cepat di malam hari dan saat main game. Pulih saat tidur atau minum Teh Hangat.</p></div>
+        <div class="need"><h3>Bersih</h3><div class="meter"><i style="width:90%;background:var(--mint)"></i></div><p>Turun pelan, lebih cepat setelah makan dan bermain. Kalau kotor muncul debu; kalau sangat kotor muncul bau dan lalat.</p></div>
+      </div>
+
+      <h3>Menu utama</h3>
+      <p>Tekan A untuk menggeser, B untuk memilih.</p>
+      <dl class="menu">
+        <dt id="makan"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h18a9 6 0 0 1-18 0z" fill="#ee7c72"/><circle cx="8" cy="9" r="2.5" fill="#a87250"/><circle cx="12" cy="7.5" r="2.5" fill="#b8784f"/><circle cx="16" cy="9" r="2.5" fill="#a87250"/></svg>Makan</dt>
+        <dd>Membuka Dapur berisi stok makanan. A untuk memilih, B untuk menyuapi. Kalau stoknya habis, B membawamu ke Shop.</dd>
+        <dt id="elus"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21 3.5 12.5a5 5 0 0 1 8.5-6 5 5 0 0 1 8.5 6z" fill="#f0708e"/></svg>Elus</dt>
+        <dd>B mengelus sekali. <span class="hold">◄B</span> mengelus terus, dan Pranala mendengkur senang.</dd>
+        <dt id="mandi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h3v6H5zM5 3h9v3H5z" fill="#aab0c4"/><rect x="11" y="5" width="10" height="4" rx="2" fill="#c4cee2"/><g fill="#6eb4e6"><circle cx="13" cy="13" r="1.4"/><circle cx="17" cy="15" r="1.4"/><circle cx="20" cy="12" r="1.4"/><circle cx="15" cy="19" r="1.4"/></g></svg>Mandi</dt>
+        <dd><span class="hold">◄B</span> untuk menggosok busa, lepas untuk membilas dengan shower. <span class="hold">◄A</span> kalau sudah selesai. Saat Pranala sangat kotor, ikon Mandi diberi titik oranye.</dd>
+        <dt id="tidur"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3a9 9 0 1 0 6 13A8 8 0 0 1 15 3z" fill="#f2c25a"/></svg>Tidur</dt>
+        <dd>Ikon Tidur hanya muncul malam hari, pukul 20.00 sampai 05.59. Lampu kamar meredup dan energi pulih cepat. Bangunkan dengan tombol apa saja, atau biarkan Pranala bangun sendiri saat pagi. Tidur minimal 30 menit memberi hadiah, sekali setiap malam.</dd>
+        <dt id="surat-menu"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2" fill="#fffefa" stroke="#7e6470" stroke-width="1.5"/><path d="M2.5 6 12 13l9.5-7" fill="none" stroke="#7e6470" stroke-width="1.5"/></svg>Surat</dt>
+        <dd>Membaca surat yang datang lewat internet. Penjelasan lengkapnya ada di bagian <a href="#surat">Surat</a>.</dd>
+        <dt id="ekstra"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z" fill="#f2c25a"/></svg>Ekstra</dt>
+        <dd>Berisi Game, Shop, Warp, Fokus, Jalan, dan Setting. Semuanya dijelaskan di <a href="#main">Main &amp; jalan-jalan</a> dan <a href="#setting">Pengaturan</a>.</dd>
+      </dl>
+
+      <h3>Hadiah harian</h3>
+      <p>Sekali sehari, saat kamu membuka kamar, Pranala memberi koin. Hadiahnya mulai dari 10 koin dan naik 2 koin untuk setiap hari berturut-turut. Setiap hari ketujuh ada bonus 10 koin lagi. Hadiah ini butuh jam yang sudah tersinkron (lihat <a href="#wifi">WiFi</a>).</p>
+    </section>
+
+    <section id="tumbuh">
+      <h2>Tumbuh besar</h2>
+      <p>Pranala tumbuh dari kecil sampai dewasa karena dirawat. Tidak ada angka level; perhatikan saja badannya yang makin besar. Pranala tidak pernah mengecil lagi.</p>
+      <ol class="grow">
+        <li><svg viewBox="-80 -150 160 158" aria-hidden="true"><use href="#pranala" transform="translate(0 0) scale(.72)"/></svg><div><b>Kecil</b><span>Baru ditemukan di kotak kardus. Badannya mungil, matanya besar.</span></div></li>
+        <li><svg viewBox="-80 -150 160 158" aria-hidden="true"><use href="#pranala" transform="scale(.86)"/></svg><div><b>Remaja</b><span>Kira-kira setelah sehari dirawat seperti biasa.</span></div></li>
+        <li><svg viewBox="-80 -150 160 158" aria-hidden="true"><use href="#pranala"/></svg><div><b>Dewasa</b><span>Sekitar 3 sampai 4 hari kemudian. Desa Pranala terbuka.</span></div></li>
+      </ol>
+      <p>Yang membantu Pranala tumbuh: makan, mandi saat kotor, dielus (secukupnya, ada batasnya setiap jam), main game, menyelesaikan sesi fokus, tidur malam, membaca surat, dan hadiah harian. Selama Pranala senang, kenyang, dan bersih, ia juga tumbuh sedikit demi sedikit dengan sendirinya.</p>
+      <p class="note warm">Kalau Pranala lapar, sedih, atau sangat kotor, pertumbuhannya melambat setengah. Rawat kebutuhannya dulu, nanti ia tumbuh normal lagi.</p>
+    </section>
+
+    <section id="main">
+      <h2>Main &amp; jalan-jalan</h2>
+      <p>Semua ada di menu <b>Ekstra</b>. Di setiap halaman, <span class="hold">◄A</span> membawamu keluar.</p>
+
+      <h3>Game</h3>
+      <p>Ada empat game arcade. A untuk memilih, B untuk mulai. Setiap game memakai sedikit energi, dan Pranala menolak bermain kalau sudah terlalu lelah.</p>
+      <dl class="menu">
+        <dt>Neko Run</dt><dd>B untuk melompati kaktus. Makin jauh berlari, makin tinggi skornya.</dd>
+        <dt>Memori</dt><dd>Hafalkan urutan panah yang menyala, lalu ulangi: A untuk kiri, B untuk kanan.</dd>
+        <dt>Tangkap Buah</dt><dd><span class="hold">◄A</span> bergeser ke kiri, <span class="hold">◄B</span> ke kanan. Tangkap buah dengan keranjang dan hindari batu. Bintang bernilai 3. Nyawanya tiga.</dd>
+        <dt>Lompat Awan</dt><dd>Pranala melompat sendiri dari awan ke awan; <span class="hold">◄A</span> dan <span class="hold">◄B</span> mengarahkannya. Awan yang retak cepat hancur. Makin tinggi, langit makin gelap dan berbintang.</dd>
+      </dl>
+
+      <h3 id="shop">Shop</h3>
+      <p>Beli makanan dengan koin dari game dan hadiah harian. A untuk memilih, B untuk membeli. Makanan masuk ke Dapur, paling banyak 9 untuk setiap jenis.</p>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>Makanan</th><th class="num">Harga</th><th class="num">Kenyang</th><th class="num">Senang</th><th class="num">Energi</th></tr></thead>
+          <tbody>
+            <tr><td>Roti Susu</td><td class="num">3 koin</td><td class="num">+15</td><td class="num">+2</td><td class="num">–</td></tr>
+            <tr><td>Onigiri</td><td class="num">5 koin</td><td class="num">+25</td><td class="num">+4</td><td class="num">+3</td></tr>
+            <tr><td>Teh Hangat</td><td class="num">4 koin</td><td class="num">+5</td><td class="num">+5</td><td class="num">+35</td></tr>
+            <tr><td>Ikan Bakar</td><td class="num">8 koin</td><td class="num">+40</td><td class="num">+8</td><td class="num">+5</td></tr>
+            <tr><td>Kue Stroberi</td><td class="num">12 koin</td><td class="num">+20</td><td class="num">+25</td><td class="num">+10</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Warp</h3>
+      <p>Satu kali warp seharga 10 koin dan memberi aksesori acak untuk Pranala: Pita Pink, Kacamata Retro, Mahkota Emas, Headset, Topi Kucing, Bunga di Kepala, atau Syal Pelangi. Mahkota Emas dan Syal Pelangi paling langka.</p>
+      <p>Kalau hasilnya kosong atau barang yang sudah kamu punya, 5 koin kembali. Lima bintang di pojok adalah jaminan: setelah empat kali warp tanpa barang baru, warp kelima pasti memberi barang baru. Tombol A di halaman Warp mengganti aksesori yang sedang dipakai.</p>
+
+      <h3>Fokus</h3>
+      <p>Teman belajar atau bekerja. Pilih 15, 25, atau 45 menit dengan A, lalu mulai dengan B. Pranala menemani dengan kacamatanya dan musik 8-bit yang tenang; <span class="hold">◄B</span> menyalakan atau mematikan musiknya.</p>
+      <p>Kalau selesai, kamu dapat 5, 10, atau 20 koin dan Pranala jadi lebih senang. <span class="hold">◄A</span> membatalkan sesi tanpa hadiah. Selama fokus, layar tidak akan tertidur.</p>
+
+      <h3>Jalan ke Desa Pranala</h3>
+      <p>Terbuka setelah Pranala dewasa, lewat <b>Ekstra &gt; Jalan</b>. <span class="hold">◄A</span> dan <span class="hold">◄B</span> untuk berjalan ke kiri dan kanan. Klik B untuk menyapa tetangga terdekat. Klik A untuk bertanya “Pulang?”, lalu B untuk pulang atau A untuk batal.</p>
+      <p>Desanya melewati Rumah Pranala, Kebun Wortel, Taman, Kedai Teh, Danau, dan Bukit. Lima tetangga tinggal di sana:</p>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>Tetangga</th><th>Di mana</th><th>Kapan ada</th></tr></thead>
+          <tbody>
+            <tr><td>Momo, kelinci</td><td>Kebun Wortel</td><td>Siang &amp; sore</td></tr>
+            <tr><td>Pak Kura, kura-kura</td><td>Taman</td><td>Kapan saja</td></tr>
+            <tr><td>Bu Bebek</td><td>Kedai Teh</td><td>Siang &amp; sore</td></tr>
+            <tr><td>Ciko, anak anjing</td><td>Danau</td><td>Siang</td></tr>
+            <tr><td>Nek Hantu, burung hantu</td><td>Bukit</td><td>Malam</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Setiap tetangga punya lima hati pertemanan. Menyapa sekali sehari menambah satu hati. Di hati kedua mereka memberi 5 koin, di hati keempat makanan kesukaan mereka, dan di hati kelima 10 koin.</p>
+    </section>
+
+    <section id="surat">
+      <h2>Surat</h2>
+      <p>Surat datang lewat internet selama WiFi Pranala menyala. Ikon amplop mendapat titik merah dan Pranala memberitahumu. Tiga surat terakhir disimpan, lengkap dengan hari dan jam diterima.</p>
+      <dl class="menu">
+        <dt>Membaca</dt><dd>Pilih <b>Surat</b> di menu utama. A untuk halaman berikutnya, <span class="hold">◄B</span> untuk pindah ke surat lain, <span class="hold">◄A</span> untuk menutup.</dd>
+        <dt>Membalas</dt><dd>Saat WiFi online, tekan B. Pilih salah satu dari lima balasan cepat, atau pilih <b>Tulis sendiri</b>.</dd>
+        <dt>Menulis sendiri</dt><dd>A menggeser huruf, B mengetik, <span class="hold">◄B</span> pindah ke baris huruf berikutnya, dan <span class="hold">◄A</span> kembali (tulisanmu tetap disimpan). Baris paling bawah berisi huruf besar (Aa), angka (123), spasi, hapus, dan <b>Kirim</b>. Paling banyak 80 huruf.</dd>
+      </dl>
+    </section>
+
+    <section id="wifi">
+      <h2>WiFi, foto &amp; saver</h2>
+      <h3>Menyambungkan WiFi pertama kali</h3>
+      <ol class="steps">
+        <li>Buka <b>Ekstra &gt; Setting &gt; WiFi</b>, lalu tekan A (Setup).</li>
+        <li>Di HP, buka pengaturan WiFi dan sambungkan ke jaringan bernama <b>PRANALA</b>.</li>
+        <li>Ketuk notifikasi login yang muncul. Kalau tidak muncul, buka <b>192.168.4.1</b> di browser.</li>
+        <li>Tekan <b>Pilih WiFi rumah</b>, ketuk nama WiFi-mu, isi kata sandinya, lalu tekan <b>Simpan</b>.</li>
+        <li>Tunggu sekitar 20 detik. Kalau berhasil, Pranala berbunyi dan kembali ke kamar.</li>
+      </ol>
+      <p>Pranala hanya bisa memakai WiFi 2,4 GHz. Halaman setup menutup sendiri setelah 3 menit. Setelah berhasil sekali, cukup tekan B (Nyalakan) di halaman WiFi.</p>
+      <p class="note">Agar hemat baterai, WiFi tidur sendiri setelah 10 menit tidak dipakai.</p>
+
+      <h3>Mengatur foto layar saver</h3>
+      <p>Buka <b>Ekstra &gt; Setting &gt; Foto</b> dan nyalakan WiFi. Dari HP yang tersambung ke WiFi yang sama, buka <b>pranala.local</b> (atau alamat angka yang tampil di layar Pranala). Di halaman itu kamu bisa melihat kabar Pranala, memilih dan merapikan foto, menulis teks, memilih font, warna, posisi, menampilkan jam, dan menyamakan jam Pranala dengan HP.</p>
+
+      <h3>Layar saver</h3>
+      <p>Setelah 5 menit tanpa tombol, layar menampilkan foto, teks, dan jam pilihanmu dengan cahaya lebih redup supaya hemat baterai. Tekan tombol apa saja untuk kembali. Di halaman Foto, A menampilkan layar saver saat itu juga.</p>
+
+      <h3>Jam</h3>
+      <p>Jam Pranala tersinkron otomatis dari internet saat WiFi menyala, dan tetap berjalan walau WiFi dimatikan. Kalau jam belum pernah tersinkron, dunia Pranala memakai harinya sendiri: satu hari berlangsung 20 menit, dari pagi sampai malam.</p>
+    </section>
+
+    <section id="daya">
+      <h2>Baterai &amp; daya</h2>
+      <ul>
+        <li>Isi daya lewat USB-C. Selama dicas, Pranala tidak mematikan diri.</li>
+        <li>Kalau 30 menit tidak ada tombol yang ditekan dan Pranala tidak sedang dicas, ia tidur total untuk menjaga baterai. Satu menit sebelumnya muncul peringatan; tekan tombol apa saja untuk membatalkan.</li>
+        <li>Untuk menyalakan lagi setelah tidur total, geser saklar ke OFF lalu ke ON.</li>
+        <li>Di bawah 15% Pranala memberi tahu bahwa baterainya lemah. Kalau benar-benar habis, ia mematikan diri untuk melindungi baterai. Cas dulu, lalu geser saklar OFF dan ON.</li>
+        <li>WiFi boleh menyala dengan baterai. Saat baterai 20% atau kurang, WiFi hanya bisa menyala kalau USB-C dicolok.</li>
+      </ul>
+      <p class="note warm">Ingin baterai lebih awet? Redupkan layar, pilih mode 1 buzzer di Suara, dan matikan WiFi kalau tidak dipakai.</p>
+    </section>
+
+    <section id="setting">
+      <h2>Pengaturan</h2>
+      <p>Ada di <b>Ekstra &gt; Setting</b>. Semua perubahan langsung tersimpan.</p>
+      <dl class="menu">
+        <dt>Layar</dt><dd>A meredupkan, B menerangkan. Ada 10 tingkat kecerahan.</dd>
+        <dt>Suara</dt><dd>A memilih baris, B mengubahnya: Volume (Mati, Pelan, Sedang, Keras), Musik menu, Musik game, Buzzer (1 untuk hemat, 2 agar musik dan bunyi klik tidak saling memotong), dan Volume musik khusus mode 2 buzzer.</dd>
+        <dt>WiFi</dt><dd>Status jaringan, alamat, dan surat. A untuk setup atau ganti WiFi, B untuk menyalakan atau mematikan.</dd>
+        <dt>Foto</dt><dd>Alamat halaman web dan status layar saver.</dd>
+        <dt>Info</dt><dd>Tiga halaman ringkasan: perangkat, keadaan Pranala, dan kebiasaanmu bersama Pranala. A berganti halaman, B menutup.</dd>
+      </dl>
+    </section>
+
+    <section id="masalah">
+      <h2>Kalau ada yang aneh</h2>
+      <details><summary>Layar tiba-tiba menampilkan foto dan jam</summary><p>Itu layar saver yang muncul setelah 5 menit tanpa tombol. Tekan tombol apa saja.</p></details>
+      <details><summary>Pranala mati sendiri</summary><p>Ia tidur total setelah 30 menit tidak dipakai, atau baterainya habis. Cas lewat USB-C bila perlu, lalu geser saklar ke OFF dan ON.</p></details>
+      <details><summary>Pranala tidak mau main game</summary><p>Energinya terlalu rendah. Tidurkan Pranala saat malam, atau beri Teh Hangat dari Shop.</p></details>
+      <details><summary>WiFi tidak mau menyala</summary><p>Baterainya sedang lemah. Colok USB-C, lalu coba nyalakan lagi.</p></details>
+      <details><summary>Ganti WiFi atau WiFi rumah berubah</summary><p>Buka Setting &gt; WiFi, tekan A (Setup), lalu ulangi langkah menyambungkan WiFi.</p></details>
+      <details><summary>pranala.local tidak terbuka</summary><p>Pastikan HP tersambung ke WiFi yang sama dengan Pranala dan WiFi Pranala sedang menyala. Kalau masih gagal, ketik alamat angka yang tampil di Setting &gt; Foto.</p></details>
+      <details><summary>Menu Jalan terkunci</summary><p>Desa Pranala terbuka setelah Pranala dewasa. Rawat terus, ia sedang tumbuh.</p></details>
+      <details><summary>Ikon Tidur tidak ada</summary><p>Ikon Tidur hanya muncul malam hari, pukul 20.00 sampai 05.59.</p></details>
+      <details><summary>Layar terasa macet</summary><p>Tahan A dan B bersamaan 3 detik, lalu lepas. Pranala menyala ulang dan semua datanya tetap aman.</p></details>
+    </section>
+  </main>
+</div>
+
+<footer class="foot">
+  <span>Panduan untuk Pranala OS v2.5</span>
+  <span>Dibuat dengan sayang, untuk dirawat dengan sayang.</span>
+</footer>
+
+<script src="panduan.js"></script>
+</body>
+</html>
