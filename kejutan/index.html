@@ -5,22 +5,33 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Untukmu</title>
 <meta name="robots" content="noindex">
-<meta name="theme-color" content="#1c1424">
+<meta name="theme-color" content="#120b1a">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&family=Patrick+Hand&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
 <link rel="stylesheet" href="kejutan.css">
 </head>
-<body class="gelap">
+<body>
+<div class="latar" aria-hidden="true">
+  <div class="langit malam-l"></div>
+  <div class="langit senja-l"></div>
+  <div class="bokeh" id="bokeh"></div>
+  <pre class="bintang" id="bintang"></pre>
+  <div class="cahaya-lilin"></div>
+  <pre class="untaian" id="untaian"></pre>
+  <pre class="bendera" id="bendera"></pre>
+  <div class="vinyet"></div>
+  <div class="butir"></div>
+</div>
 <canvas id="confetti" aria-hidden="true"></canvas>
-<div class="stars" aria-hidden="true"></div>
+<div class="hati-terbang" id="hati-terbang" aria-hidden="true"></div>
 
 <main id="panggung">
   <!-- 1. lampu dimatikan -->
-  <section class="adegan aktif" id="a-gelap">
+  <section class="adegan" id="a-gelap">
     <pre class="ascii kecil" id="ascii-intip" aria-hidden="true"></pre>
     <p class="bisik" id="t-gelap"></p>
-    <button class="tombol" id="b-mulai" hidden>Ikut Pranala</button>
+    <button class="tombol" id="b-mulai" hidden>ikut Pranala</button>
   </section>
 
   <!-- 2. lilin & harapan -->
@@ -28,51 +39,114 @@
     <pre class="ascii" id="ascii-lilin" aria-label="Pranala membawa kue ulang tahun dengan lilin menyala"></pre>
     <h1 class="judul">Selamat ulang tahun</h1>
     <p class="bisik" id="t-lilin"></p>
-    <button class="tombol" id="b-tiup" hidden>Tiup lilinnya</button>
+    <button class="tombol" id="b-tiup" hidden>tiup lilinnya</button>
   </section>
 
   <!-- 3. pesta -->
   <section class="adegan" id="a-pesta" hidden>
-    <pre class="ascii" id="ascii-pesta" aria-label="Pranala tersenyum senang"></pre>
+    <pre class="ascii" id="ascii-pesta" aria-label="Pranala melompat senang"></pre>
     <h1 class="judul">Yay!</h1>
     <p class="bisik" id="t-pesta"></p>
-    <button class="tombol" id="b-hadiah" hidden>Buka hadiahnya</button>
+    <button class="tombol" id="b-hadiah" hidden>buka hadiahnya</button>
   </section>
 
   <!-- 4. kunci kenangan -->
   <section class="adegan" id="a-kunci" hidden>
-    <form class="kartu kunci" id="f-kunci" autocomplete="off">
-      <pre class="ascii kecil" aria-hidden="true">   .--.
-  /    \
- _|____|_
-|   ()   |
-|   ||   |
-'--------'</pre>
-      <h2>Hadiah ini terkunci</h2>
-      <p>Isinya foto-foto kenangan kalian. Kuncinya sandi rahasia yang cuma kalian berdua tahu.</p>
-      <p class="petunjuk" id="petunjuk" hidden></p>
-      <label for="sandi">Sandi</label>
-      <input id="sandi" type="password" inputmode="text" autocomplete="off" required>
-      <button class="tombol" type="submit" id="b-buka">Buka</button>
-      <p class="pesan-salah" id="salah" role="alert"></p>
-    </form>
+    <div class="kunci-wrap">
+      <pre class="ascii kecil" id="ascii-ngintip" aria-hidden="true"></pre>
+      <form class="kartu kertas" id="f-kunci" autocomplete="off">
+        <span class="selotip kiri"></span><span class="selotip kanan"></span>
+        <h2>Hadiah ini terkunci</h2>
+        <p>Isinya surat dan foto-foto kenangan kalian. Kuncinya sandi rahasia yang cuma kalian berdua tahu.</p>
+        <p class="petunjuk" id="petunjuk" hidden></p>
+        <label for="sandi">Sandi</label>
+        <input id="sandi" type="password" autocomplete="off" required>
+        <button class="tombol" type="submit" id="b-buka">buka</button>
+        <p class="pesan-salah" id="salah" role="alert"></p>
+      </form>
+    </div>
   </section>
 
-  <!-- 5. kenangan -->
-  <section class="adegan" id="a-kenangan" hidden>
-    <article class="surat" id="surat" aria-live="polite">
+  <!-- 5. amplop -->
+  <section class="adegan" id="a-amplop" hidden>
+    <h2 class="judul-kecil">ada surat untukmu</h2>
+    <button class="amplop" id="amplop" type="button" aria-label="Buka amplop">
+      <span class="belakang"></span>
+      <span class="dalam"></span>
+      <span class="depan"></span>
+      <span class="tutup"></span>
+      <span class="segel">♥</span>
+      <span class="alamat" id="alamat"></span>
+      <span class="cap">~~~~~~
+~~~~~~
+~~~~~~</span>
+      <span class="perangko"><pre> /\_/\
+(O w O)
+ 15.12 </pre></span>
+    </button>
+    <p class="ketuk" id="ketuk">ketuk amplopnya</p>
+  </section>
+
+  <!-- 6. surat -->
+  <section class="adegan" id="a-surat" hidden>
+    <article class="surat kertas" aria-live="polite">
+      <span class="selotip kiri"></span>
+      <pre class="coretan atas" aria-hidden="true">&lt;3  *</pre>
       <p class="untuk" id="untuk"></p>
       <div class="isi" id="isi-surat"></div>
       <p class="dari" id="dari"></p>
+      <pre class="coretan bawah" aria-hidden="true"> /\_/\
+( ^w^ )</pre>
     </article>
+    <p class="lanjut" id="lanjut" hidden></p>
+    <button class="ascii-btn" id="b-ke-akhir" type="button" hidden>[ kembali ]</button>
+  </section>
+
+  <!-- 7. foto satu per satu -->
+  <section class="adegan" id="a-foto" hidden>
+    <p class="kepala-foto">kenangan kita</p>
+    <p class="progres" id="progres" aria-live="polite"></p>
+    <div class="tumpukan" id="tumpukan">
+      <figure class="polaroid hiasan" style="--r:-7deg" aria-hidden="true"></figure>
+      <figure class="polaroid hiasan" style="--r:5deg" aria-hidden="true"></figure>
+    </div>
+    <div class="kontrol">
+      <button class="ascii-btn" id="b-mundur" type="button" aria-label="Foto sebelumnya">[&lt;]</button>
+      <button class="ascii-btn" id="b-jeda" type="button" aria-label="Jeda">[ || ]</button>
+      <button class="ascii-btn" id="b-maju" type="button" aria-label="Foto berikutnya">[&gt;]</button>
+    </div>
+  </section>
+
+  <!-- 8. akhir -->
+  <section class="adegan" id="a-akhir" hidden>
+    <h2 class="judul-kecil">semua kenangan kita</h2>
     <div class="galeri" id="galeri"></div>
     <pre class="ascii" id="ascii-akhir" aria-label="Pranala dengan mata hati"></pre>
-    <p class="penutup">Terima kasih sudah merawatku dan merawat kalian berdua.<br>Semoga tahun ini penuh hal-hal hangat.</p>
+    <p class="penutup">Terima kasih sudah merawatku dan merawat kalian berdua. Semoga tahun ini penuh hal-hal hangat.</p>
+    <div class="aksi">
+      <button class="ascii-btn" id="b-ulang" type="button">[ putar foto lagi ]</button>
+      <button class="ascii-btn" id="b-surat" type="button">[ baca surat lagi ]</button>
+    </div>
     <a class="kembali" href="../">Kembali ke panduan</a>
   </section>
 </main>
 
-<button class="suara" id="suara" type="button" aria-pressed="true" hidden>Musik: nyala</button>
+<!-- TV Pranala: lagu diputar dari YouTube resmi (beabadoobee - Glue Song) -->
+<aside class="tv" id="tv" hidden aria-label="Pemutar lagu">
+  <pre class="antena" aria-hidden="true">\     /
+ \   /
+  \_/</pre>
+  <div class="tv-badan">
+    <div class="tv-layar"><div id="yt"></div></div>
+    <div class="tv-info">
+      <span>Glue Song<small>beabadoobee</small></span>
+      <span class="kenop" aria-hidden="true"><i id="lampu-tv"></i><i></i></span>
+    </div>
+  </div>
+  <p class="tv-petunjuk" id="tv-petunjuk" hidden>tekan ▶ di TV untuk memutar lagunya</p>
+</aside>
+
+<button class="suara" id="suara" type="button" aria-pressed="true" hidden>musik: nyala</button>
 
 <dialog id="lihat">
   <form method="dialog"><button class="tutup" aria-label="Tutup">×</button></form>
