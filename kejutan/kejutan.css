@@ -48,11 +48,11 @@ body.terang .langit.senja-l { opacity: 1; }
 .bintang, .untaian, .bendera { position: absolute; left: 0; right: 0; margin: 0; font: 18px/18px var(--vt); white-space: pre; overflow: hidden; }
 .bintang { top: 0; color: #e9ddff; opacity: .75; transition: opacity 1.8s;
   /* bagian tengah (tempat teks & Pranala) dibiarkan kosong: bintang tidak terselip di antara huruf */
-  -webkit-mask-image: radial-gradient(ellipse 34% 40% at 50% 52%, transparent 70%, #000 100%);
-  mask-image: radial-gradient(ellipse 34% 40% at 50% 52%, transparent 70%, #000 100%); }
+  -webkit-mask-image: radial-gradient(ellipse 40% 44% at 50% 52%, transparent 82%, #000 100%);
+  mask-image: radial-gradient(ellipse 40% 44% at 50% 52%, transparent 82%, #000 100%); }
 @media (max-width: 620px) {
-  .bintang { -webkit-mask-image: radial-gradient(ellipse 60% 36% at 50% 50%, transparent 70%, #000 100%);
-    mask-image: radial-gradient(ellipse 60% 36% at 50% 50%, transparent 70%, #000 100%); }
+  .bintang { -webkit-mask-image: radial-gradient(ellipse 66% 40% at 50% 50%, transparent 82%, #000 100%);
+    mask-image: radial-gradient(ellipse 66% 40% at 50% 50%, transparent 82%, #000 100%); }
 }
 body.terang .bintang { opacity: .18; color: #fff; }
 .untaian { top: 0; color: #8b7896; }
