@@ -1,6 +1,6 @@
 // Kejutan ulang tahun Pranala
 // gelap -> lilin & lagu 8-bit -> tiup -> pesta -> kunci (AES-GCM + PBKDF2) -> amplop -> surat diketik
-// -> foto muncul satu per satu & berpindah sendiri -> semua kenangan. Lagu: Glue Song (YouTube resmi) di "TV Pranala".
+// -> foto muncul satu per satu & berpindah sendiri -> semua kenangan. Lagu: file milik pengirim (ikut terkunci) di piringan vinyl.
 (() => {
   const $ = (id) => document.getElementById(id);
   const tenang = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -335,41 +335,47 @@
     }
   });
 
-  // =================== TV Pranala: Glue Song (YouTube resmi) ===================
-  let yt = null, ytSiap = false, ytMau = false;
-  function siapkanTV() {
-    $('tv').hidden = false;
+  // =================== piringan vinyl: lagu milik pengirim, ikut terkunci ===================
+  const lagu = new Audio();
+  lagu.loop = true;
+  lagu.preload = 'auto';
+  let laguAda = false;
+  const vinyl = $('vinyl');
+  const mmss = (s) => (isFinite(s) ? Math.floor(s / 60) + ':' + String(Math.floor(s % 60)).padStart(2, '0') : '-:--');
+  function siapkanVinyl() {
+    const l = isi && isi.lagu;
+    if (!l || !l.src) return;                                     // tanpa lagu: halaman tetap jalan, hening
+    laguAda = true;
+    $('judul-lagu').textContent = l.judul || 'Lagu kita';
+    $('artis').textContent = l.artis || '';
+    if (l.sampul) { $('sampul').src = l.sampul; $('sampul').hidden = false; $('label-ascii').hidden = true; }
+    // data URI -> blob: lebih ringan untuk diputar & digeser
+    try {
+      const [kepala, data] = l.src.split(',');
+      const tipe = (kepala.match(/data:([^;]+)/) || [])[1] || 'audio/mpeg';
+      const bin = atob(data), u8 = new Uint8Array(bin.length);
+      for (let i = 0; i < bin.length; i++) u8[i] = bin.charCodeAt(i);
+      lagu.src = URL.createObjectURL(new Blob([u8], { type: tipe }));
+    } catch (_) { lagu.src = l.src; }
+    vinyl.hidden = false;
     document.body.classList.add('berlagu');
-    window.onYouTubeIframeAPIReady = () => {
-      yt = new YT.Player('yt', {
-        width: 200, height: 200, videoId: 'y1cBhJLNNXU',
-        playerVars: { playsinline: 1, rel: 0, modestbranding: 1 },
-        events: {
-          onReady: () => { ytSiap = true; yt.setVolume(85); if (ytMau) yt.playVideo(); },
-          onStateChange: (ev) => {
-            $('lampu-tv').classList.toggle('nyala', ev.data === 1);
-            if (ev.data === 1) $('tv-petunjuk').hidden = true;
-          },
-        },
-      });
-    };
-    const s = document.createElement('script');
-    s.src = 'https://www.youtube.com/iframe_api';
-    s.onerror = () => { $('tv').hidden = true; };               // tanpa internet / diblokir: lanjut tanpa lagu
-    document.head.appendChild(s);
   }
+  lagu.addEventListener('play', () => { vinyl.classList.add('main'); $('vinyl-petunjuk').hidden = true; });
+  lagu.addEventListener('pause', () => vinyl.classList.remove('main'));
+  setInterval(() => { if (laguAda) $('waktu').textContent = mmss(lagu.currentTime) + ' / ' + mmss(lagu.duration); }, 500);
+  $('piringan').addEventListener('click', () => { if (lagu.paused) lagu.play().catch(() => {}); else lagu.pause(); });
   function putarLagu() {
-    ytMau = true;
+    if (!laguAda) return;
     if (ac) ac.suspend();
-    if (ytSiap) yt.playVideo();
-    setTimeout(() => { if (!$('tv').hidden && (!ytSiap || yt.getPlayerState() !== 1)) $('tv-petunjuk').hidden = false; }, 3000);
+    lagu.volume = 0.9;
+    lagu.play().catch(() => { $('vinyl-petunjuk').hidden = false; });   // mis. diblokir peramban: ketuk piringan
   }
 
   // =================== 5. amplop ===================
   function keAmplop() {
     $('alamat').textContent = isi.untuk ? 'untuk ' + isi.untuk : 'untukmu';
     ganti('a-amplop');
-    siapkanTV();
+    siapkanVinyl();
   }
   $('amplop').addEventListener('click', async () => {
     const a = $('amplop');

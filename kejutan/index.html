@@ -131,19 +131,24 @@
   </section>
 </main>
 
-<!-- TV Pranala: lagu diputar dari YouTube resmi (beabadoobee - Glue Song) -->
-<aside class="tv" id="tv" hidden aria-label="Pemutar lagu">
-  <pre class="antena" aria-hidden="true">\     /
- \   /
-  \_/</pre>
-  <div class="tv-badan">
-    <div class="tv-layar"><div id="yt"></div></div>
-    <div class="tv-info">
-      <span>Glue Song<small>beabadoobee</small></span>
-      <span class="kenop" aria-hidden="true"><i id="lampu-tv"></i><i></i></span>
-    </div>
+<!-- Piringan vinyl: lagu & sampul ikut terkunci di kenangan.dat (hanya terbuka dengan sandi) -->
+<aside class="vinyl" id="vinyl" hidden aria-label="Pemutar lagu">
+  <div class="meja">
+    <button class="piringan" id="piringan" type="button" aria-label="Putar atau jeda lagu">
+      <span class="label"><img id="sampul" alt="" hidden><pre class="label-ascii" id="label-ascii" aria-hidden="true"> /\_/\
+(O w O)</pre></span>
+      <span class="poros"></span>
+    </button>
+    <span class="kilap" aria-hidden="true"></span>
+    <span class="lengan" aria-hidden="true"><i></i></span>
+    <span class="not-vinyl" aria-hidden="true"><b>♪</b><b>♫</b><b>♪</b></span>
   </div>
-  <p class="tv-petunjuk" id="tv-petunjuk" hidden>tekan ▶ di TV untuk memutar lagunya</p>
+  <div class="vinyl-info">
+    <span class="judul-lagu" id="judul-lagu">Glue Song</span>
+    <span class="artis" id="artis">beabadoobee</span>
+    <span class="waktu" id="waktu"></span>
+  </div>
+  <p class="vinyl-petunjuk" id="vinyl-petunjuk" hidden>ketuk piringannya untuk memutar lagu</p>
 </aside>
 
 <button class="suara" id="suara" type="button" aria-pressed="true" hidden>musik: nyala</button>
